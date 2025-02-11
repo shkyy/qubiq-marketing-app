@@ -26,7 +26,7 @@ const variants = {
 const Hero = () => {
   
   return (
-    <main className='relative py-7 px-6 lg:px-20 text-center overflow-hidden'>
+    <main className='relative py-2 px-6 lg:px-20 text-center overflow-hidden'>
      <div className="absolute bottom-0 left-0 w-full h-[190px] bg-slate-800"></div>
       <div className="relativez-50 container mx-auto flex flex-col items-center">
         <div className='absolute py-115 bg-gradient-to-bl from-purple-300 via-indigo-200 to-pink-200 w-[85%] -z-5 h-32'></div>

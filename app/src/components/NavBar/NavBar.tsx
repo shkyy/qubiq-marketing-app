@@ -50,8 +50,8 @@ const NavBar = () => {
                                 {links.map(({ id, name, link }) => {
                                     return (
                                         <li key={id} className="cursor-pointer py-4">
-                                            <a href={link} className="text-sm text-stone-900 font-light
-                                                                    hover:text-primary py-2
+                                            <a href={link} className="text-md text-stone-900 font-light
+                                                                    hover:text-qupiqpurple py-2
                                                                     transition-colors duration-500
                                                                     dark:text-white">
                                                 {name}
