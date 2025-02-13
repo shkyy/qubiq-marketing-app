@@ -1,6 +1,7 @@
 import Hero from "./components/Landing page/Hero/Hero";
 import NavBar from "./components/NavBar/NavBar";
 import Features from "./components/Landing page/Features/Features";
+import KeyFeatures from "./components/Landing page/Features/KeyFeatures";
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <NavBar/>
       <Hero/>
       <Features/>
+      <KeyFeatures/>
     </div>
   )
 }

@@ -76,13 +76,13 @@ const Hero = () => {
             sx={{
               background: 'oklch(60.12% 0.1 292.39)',
               borderRadius: "6px",
-              height: '39px',
+              height: '40px',
               margin: '1px',
               fontSize: 12,
               transition: '0.3s',
               "&:hover": {
                 background: 'oklch(70% 0.12 292.39)',
-                transform: 'scale(1.05',
+                transform: 'scale(1.05)',
               },
             }}
           >
