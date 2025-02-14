@@ -1,9 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
-import feature_1 from "../../../assets/feature_1.svg";
-import feature_2 from "../../../assets/feature_2.svg";
-import feature_3 from "../../../assets/feature_3.svg";
-import feature_4 from "../../../assets/feature_4.svg";
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
@@ -38,20 +34,33 @@ const features = [
   },
 ];
 
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" }}
+}
+
 const KeyFeatures = () => {
 
   const [expandIndex, setExpandIndex] = useState<number | null>(null);
 
   return (
-    <section className='flex flex-col lg:flex-row w-full py-2 items-center justify-between'>
+    <motion.section 
+      className='flex flex-col lg:flex-row w-full py-8 items-center justify-between'
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeInVariants}
+    >
       <div className='lg:w-2/3 relative flex flex-col items-center justify-start self-start'>
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-200 via-indigo-100 to-pink-100 rounded-md w-4/5 h-123 -z-5 mt-20 ml-18 blur-xs"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-200 via-indigo-100 to-pink-100 rounded-full w-4/5 h-135 -z-5 mt-10 ml-20 blur-2xl"></div>
         <div className="flex flex-col w-2/3 py-30 space-y-6">
        {features.map(({title, icon: Icon, description}, index) => (
           <motion.div 
             key={index} 
-            className="relative flex flex-row item-start w-full p-4 rounded-lg shadow-md max-w-3xl cursor-pointer transition-all duration-300 ease-in-out"
+            className="relative flex flex-row item-start w-full p-5 rounded-lg shadow-md max-w-3xl cursor-pointer transition-all duration-300 ease-in-out"
             initial={{ borderRadius: "10px", scale: 1 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }}
+            viewport={{ once: true }}
             whileHover={{ borderRadius: "16px", scale: 1.03, boxShadow: "0px 5px 15px rgba(150, 100, 180, 0.3)" }}
             style={{ minHeight: "80px"}}
             onMouseEnter={() => setExpandIndex(index)}
@@ -85,13 +94,18 @@ const KeyFeatures = () => {
       </div>
       
 
-      <div className="lg:w-3/5 flex flex-col gap-1 justify-end py-30">
+      <motion.div 
+        className="lg:w-3/5 flex flex-col gap-1 justify-end py-30"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
       <h3 className="text-5xl leading-tight px-15 font-medium max-w-2xl">
           Know More About <br/>Our Key Features
       </h3>
        <p className="px-15 py-6 font-extralight max-w-5xl leading-7 mr-14">
-          A task management platform for remote software teams, QUBIQ combines AI-driven insights, real-time code analysis, 
-          and productivity tracking to streamline collaboration and enhance code quality.
+       Empower your remote software team with AI-driven task management, real-time code insights, 
+       and data-backed productivity tracking—streamlining workflows, enhancing code quality, and driving seamless collaboration.
        </p>
        <Button
             variant='outlined'
@@ -101,9 +115,9 @@ const KeyFeatures = () => {
               border: 2,
               borderRadius: "6px",
               height: '42px',
-              margin: '10px',
-              marginRight: 59,
-              marginLeft: 7.8,
+              margin: '1px',
+              marginRight: 63.2,
+              marginLeft: 7.7,
               fontSize: 13,
               transition: 'all 0.3s ease-in-out',
               "&:hover": {
@@ -116,8 +130,8 @@ const KeyFeatures = () => {
           >
             Learn More {" "} <OpenInNewOutlinedIcon sx={{ fontSize: 16, marginLeft: 1 }} />
           </Button>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   )
 }
 

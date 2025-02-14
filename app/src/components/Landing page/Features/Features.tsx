@@ -98,8 +98,8 @@ const Features = () => {
        </span>
        </h3>
        <p className="text-gray-300 px-10 ml-15 py-6 font-extralight max-w-5xl leading-7">
-          A task management platform for remote software teams, QUBIQ combines AI-driven insights, real-time code analysis, 
-          and productivity tracking to streamline collaboration and enhance code quality.
+       QUBIQ revolutionizes remote collaboration, automating tasks, optimizing code quality, 
+       and providing real-time performance insights—all in one seamless platform.
        </p>
       </div>
        

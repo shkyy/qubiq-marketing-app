@@ -1,27 +1,6 @@
-import React from 'react'
 import { motion } from 'framer-motion';
 import img from '../../../assets/02.png'
 import { Button, TextField } from '@mui/material';
-
-const variants = {
-  initial: {
-    opacity: 0,
-    y: 10,
-    scale: 0.95
-  },
-  animate: {
-    opacity: 1,
-    y: [10, -10, 10],
-    scale: 1,
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      repeatType: "mirror",
-      ease: "easeInOut",
-    },
-  },
-};
-
 
 const Hero = () => {
   
