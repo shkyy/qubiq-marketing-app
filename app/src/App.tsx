@@ -1,23 +1,28 @@
-import Hero from "./components/Landing page/Hero/Hero";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import LandingPage from "./components/Landing page/LandingPage";
+import AboutUsPage from "./components/AboutUs page/AboutUsPage";
+import FeaturesPage from "./components/Features page/FeaturesPage";
+import ContactUsPage from "./components/ContactUs page/ContactUsPage";
+import ReactDOM from "react-dom/client";
 import NavBar from "./components/NavBar/NavBar";
-import Features from "./components/Landing page/Features/Features";
-import KeyFeatures from "./components/Landing page/Features/KeyFeatures";
-import Services from "./components/Landing page/Services/Services";
-import Services_2 from "./components/Landing page/Services/Services_2";
-import ComingSoon from "./components/Landing page/ComingSoon/ComingSoon";
 
 const App = () => {
   return (
-    <div className=" bg-gradient-to-t from-primary via-white ">
-      <NavBar/>
-      <Hero/>
-      <Features/>
-      <Services_2/>
-      <Services/>
-      <KeyFeatures/>
-      <ComingSoon/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<NavBar/>}>
+          <Route index element={<LandingPage/>}/>
+          <Route path="features" element={<FeaturesPage/>}/>
+          <Route path="aboutus" element={<AboutUsPage/>}/>
+          <Route path="contactus" element={<ContactUsPage/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
+
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(<App/>);
 
 export default App;

@@ -5,6 +5,7 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import DarkMode from "./DarkMode";
 import { Button, IconButton } from "@mui/material";
 import ResponsiveMenu from "./ResponsiveMenu";
+import { Outlet, Link } from "react-router-dom";
 
 const links = [
     {
@@ -15,17 +16,17 @@ const links = [
     {
         id: 2,
         name: "About",
-        link: "/about",
+        link: "/aboutus",
     },
     {
         id: 3,
-        name: "Services",
-        link: "/services",
+        name: "Features",
+        link: "/features",
     },
     {
         id: 4,
         name: "Contact Us",
-        link: "/contact",
+        link: "/contactus",
     },
 ]
 const NavBar = () => {
@@ -46,16 +47,17 @@ const NavBar = () => {
                         </div>
                         {/* Navlinks section */}
                         <div className="hidden md:block">
+                            <nav>
                             <ul className="flex items-center gap-8">
                                 {links.map(({ id, name, link }) => {
                                     return (
                                         <li key={id} className="cursor-pointer py-4">
-                                            <a href={link} className="text-md text-stone-900 font-light
+                                            <Link to={link} className="text-md text-stone-900 font-light
                                                                     hover:text-qupiqpurple py-2
                                                                     transition-colors duration-500
                                                                     dark:text-white">
                                                 {name}
-                                            </a>
+                                            </Link>
                                         </li>
                                     )
                                 })}
@@ -78,6 +80,7 @@ const NavBar = () => {
                                     Try QUBIQ
                                 </Button>
                             </ul>
+                            </nav>
                         </div>
                         {/* Mobile View */}
                         <div className="flex items-center gap-4 md:hidden">
@@ -103,6 +106,8 @@ const NavBar = () => {
                     menuLinks={links}
                 />
             </nav>
+
+            <Outlet/>
         </>
     )
 }
