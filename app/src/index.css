@@ -4,6 +4,7 @@
   --font-sans: 'Poppins', sans-serif;
   --color-qupiqpurple: oklch(60.12% 0.1 292.39);
   --color-qubiqblue: oklch(46.96% 0.1378 247.59);
+  --color-qubiqgreen: oklch(3.59, 131.61, 13.44);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));

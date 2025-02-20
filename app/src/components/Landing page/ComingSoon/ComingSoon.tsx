@@ -1,96 +1,62 @@
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { TextField, Button } from "@mui/material";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom"; // If using React Router
 
 const ComingSoon = () => {
-  const [email, setEmail] = useState("");
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const targetDate = new Date("2024-12-31T00:00:00");
-    const interval = setInterval(() => {
-      const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
-
-      setDays(Math.floor(difference / (1000 * 60 * 60 * 24)));
-      setHours(Math.floor((difference / (1000 * 60 * 60)) % 24));
-      setMinutes(Math.floor((difference / 1000 / 60) % 60));
-      setSeconds(Math.floor((difference / 1000) % 60));
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="bg-slate-800 flex flex-col items-center justify-center h-screen text-center p-6 text-white relative">
-      <motion.h1 
-        className="text-5xl font-bold mb-4"
-        initial={{ opacity: 0, y: -20 }}
+    <div className="flex flex-col items-center justify-center h-screen bg-slate-800 text-center">
+      {/* Animated "Coming Soon" Text */}
+      <motion.h1
+        className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-indigo-200 to-pink-200"
+        initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        Something Awesome is Coming Soon!
+        Coming Soon...
       </motion.h1>
-      <p className="text-gray-300 max-w-2xl mb-6">
-        We are working hard to bring you an amazing experience. Stay tuned and
-        be the first to know when we launch.
-      </p>
-      <div className="flex space-x-4 mb-6">
-        <div className="bg-purple-600 text-white p-4 rounded-lg text-center">
-          <p className="text-2xl font-bold">{days}</p>
-          <p className="text-sm">Days</p>
-        </div>
-        <div className="bg-purple-600 text-white p-4 rounded-lg text-center">
-          <p className="text-2xl font-bold">{hours}</p>
-          <p className="text-sm">Hours</p>
-        </div>
-        <div className="bg-purple-600 text-white p-4 rounded-lg text-center">
-          <p className="text-2xl font-bold">{minutes}</p>
-          <p className="text-sm">Minutes</p>
-        </div>
-        <div className="bg-purple-600 text-white p-4 rounded-lg text-center">
-          <p className="text-2xl font-bold">{seconds}</p>
-          <p className="text-sm">Seconds</p>
-        </div>
-      </div>
-      <div className="flex items-center space-x-2">
-        <TextField 
-          variant="outlined" 
-          placeholder="Enter your email"
-          className="bg-white rounded-md"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '6px',
-            },
-            '& .MuiInputBase-input': {
-              fontSize: 14,
-              padding: '10px',
-            },
-          }}
-        />
+
+      {/* Subtle Floating Animation */}
+      <motion.p
+        className="mt-4 text-lg text-indigo-200"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 1 }}
+      >
+        Stay tuned for something amazing!
+      </motion.p>
+
+      {/* Cool Glowing Effect on Button */}
+      <motion.div
+        className="mt-6"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Link to="/contact">
         <Button
-          variant="contained"
-          sx={{
-            background: "oklch(60.12% 0.1 292.39)",
-            borderRadius: "6px",
-            height: "40px",
-            transition: "0.3s",
-            '&:hover': {
-              background: "oklch(70% 0.12 292.39)",
-              transform: "scale(1.05)",
-            },
-          }}
-        >
-          Notify Me
-        </Button>
-      </div>
-      <p className="mt-4 text-purple-300">Stay tuned for updates!</p>
-    </section>
+            variant='outlined'
+            sx={{
+              borderColor: 'oklch(65.9% 0.15 292.39)',
+              color: 'oklch(65.9% 0.15 292.39)',
+              border: 2,
+              borderRadius: "6px",
+              height: '42px',
+              margin: '1px',
+              marginLeft: 7.5,
+              fontSize: 13,
+              transition: 'all 0.3s ease-in-out',
+              "&:hover": {
+                background: 'linear-gradient(90deg, oklch(65.9% 0.15 292.39) 20%, oklch(70% 0.12 278.39) 90%)',
+                color: 'white',
+                boxShadow: '0px 4px 12px rgba(150, 100, 180, 0.4)',
+                transform: 'scale(1.07)',
+              }
+            }}
+          > 
+            Contact Us
+          </Button>
+        </Link>
+      </motion.div>
+    </div>
   );
 };
 
