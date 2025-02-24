@@ -6,6 +6,7 @@ import DarkMode from "./DarkMode";
 import { Button, IconButton } from "@mui/material";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { Outlet, Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const links = [
     {
@@ -108,6 +109,7 @@ const NavBar = () => {
             </nav>
 
             <Outlet/>
+            <Footer/>
         </>
     )
 }

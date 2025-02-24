@@ -1,6 +1,6 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Box, Grid2, InputAdornment, TextField, Typography } from '@mui/material'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Box, Grid2, InputAdornment, TextField, Typography } from '@mui/material';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
 import img from '../../../assets/03.svg';
@@ -11,9 +11,9 @@ const ContactForm = () => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className='flex items-center justify-center px-6 w-full bg-slate-800'
+      className='flex items-center justify-center px-6 w-full'
     >
-      <Box className='bg-purple-200 shadow-2xl rounded-2xl p-8 w-full max-w-4xl'>
+      <Box className='bg-white shadow-lg rounded-2xl p-8 w-full max-w-4xl' boxShadow={5}>
         <Grid2 container spacing={4} alignItems='center'>
           <Grid2 size={{ xs: 12, md: 6 }}>
             <motion.img
@@ -29,7 +29,8 @@ const ContactForm = () => {
             <Typography
               variant='h4'
               component='h2'
-              className='text-gray-800 font-semibold text-center mb-6'>
+              className='text-slate-700 font-semibold text-center mb-6'
+            >
               Contact Form
             </Typography>
             <form className='space-y-5'>
@@ -46,10 +47,11 @@ const ContactForm = () => {
                         <InputAdornment position='start'>
                           <PersonRoundedIcon />
                         </InputAdornment>
-                      )
-                    }
-                  }} />
-
+                      ),
+                    },
+                  }}
+                  className='text-slate-800'
+                />
               </motion.div>
               <motion.div whileHover={{ scale: 1.025 }}>
                 <TextField
@@ -64,9 +66,11 @@ const ContactForm = () => {
                         <InputAdornment position='start'>
                           <AlternateEmailRoundedIcon />
                         </InputAdornment>
-                      )
-                    }
-                  }} />
+                      ),
+                    },
+                  }}
+                  className='text-slate-800'
+                />
               </motion.div>
               <motion.div whileHover={{ scale: 1.025 }}>
                 <TextField
@@ -76,15 +80,15 @@ const ContactForm = () => {
                   rows={4}
                   placeholder='Enter your Message'
                   name='message'
+                  className='text-slate-800'
                 />
               </motion.div>
             </form>
           </Grid2>
         </Grid2>
-
       </Box>
     </motion.div>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;

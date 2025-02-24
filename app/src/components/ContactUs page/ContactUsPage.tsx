@@ -6,7 +6,7 @@ import ContactForm from './Form/ContactForm';
 const ContactUsPage = () => {
   return (
     <main className='relative flex flex-col py-30 px-6 lg:px-20 text-center overflow-hidden'>
-        <div className='absolute top-0 left-1/2 transform -translate-x-1/2 bg-gradient-to-bl from-purple-300 via-indigo-200 to-pink-200 w-[85%] -z-5 h-[400px] rounded-sm'></div>
+        <div className='absolute top-0 left-1/2 transform -translate-x-1/2 bg-gradient-to-bl from-purple-300 via-indigo-200 to-pink-200 w-[85%] -z-5 h-[460px] rounded-sm'></div>
 
         <section className='relative z-10 max-w-2xl mx-auto'>
             <motion.h1 
@@ -26,8 +26,9 @@ const ContactUsPage = () => {
                 We'd love to hear from you! Whether you have questions, feedback, or collaboration inquiries, let us know.
             </motion.p>
         </section>
+        <SocialMediaCard/>
 
-        <section className='relative z-10 max-w-xl mt-40 py-15 mx-auto'>
+        <section className='relative z-10 max-w-xl mt-10 py-15 mx-auto'>
             <motion.p 
                 className='text-[#4bbc43] text-xs tracking-widest'
                 initial={{ opacity: 0, y: 20 }}
@@ -51,12 +52,11 @@ const ContactUsPage = () => {
       
         </section>
 
-        <section className='w-full py-10 h-150 relative bg-slate-800'>
+        <section className='w-full relatives'>
         <ContactForm/>
 
         </section>
 
-        <SocialMediaCard/>
 
     </main>
   )
