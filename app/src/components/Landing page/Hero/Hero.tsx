@@ -39,7 +39,7 @@ const Hero = () => {
             className='w-80'
             sx={{
               "& .MuiOutlinedInput-root": { 
-                borderRadius: "6px", // More roundness
+                borderRadius: "6px", 
               },
               "& .MuiInputBase-input": { 
                 fontSize: 14, 

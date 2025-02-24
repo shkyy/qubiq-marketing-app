@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import DarkMode from "./DarkMode";
 import { Button, IconButton } from "@mui/material";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { Outlet, Link } from "react-router-dom";
@@ -17,7 +16,7 @@ const links = [
     {
         id: 2,
         name: "About",
-        link: "/aboutus",
+        link: "/about",
     },
     {
         id: 3,
@@ -27,7 +26,7 @@ const links = [
     {
         id: 4,
         name: "Contact Us",
-        link: "/contactus",
+        link: "/contact",
     },
 ]
 const NavBar = () => {
@@ -62,7 +61,6 @@ const NavBar = () => {
                                         </li>
                                     )
                                 })}
-                                <DarkMode />
                                 <Button
                                     variant='contained'
                                     sx={{
@@ -85,8 +83,6 @@ const NavBar = () => {
                         </div>
                         {/* Mobile View */}
                         <div className="flex items-center gap-4 md:hidden">
-                            <DarkMode />
-
                             {
                                 showMenuBar ?
 

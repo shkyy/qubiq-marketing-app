@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ProjectShowcase from './ProjectShowcase/ProjectShowcase';
 import TeamMemberCard from './Card/TeamMemberCard';
-import { FaReact, FaNodeJs } from 'react-icons/fa';
+import { FaReact } from 'react-icons/fa';
 import { SiTypescript, SiSpringboot, SiExpress, SiMongodb } from 'react-icons/si';
 
 const AboutUsPage = () => {

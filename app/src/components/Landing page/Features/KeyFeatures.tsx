@@ -6,6 +6,7 @@ import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const features = [
   {
@@ -128,7 +129,7 @@ const KeyFeatures = () => {
               },
             }}
           >
-            Learn More {" "} <OpenInNewOutlinedIcon sx={{ fontSize: 16, marginLeft: 1 }} />
+            <Link to='/features'>Learn More {" "} <OpenInNewOutlinedIcon sx={{ fontSize: 16, marginLeft: 1 }} /></Link>
           </Button>
       </motion.div>
     </motion.section>

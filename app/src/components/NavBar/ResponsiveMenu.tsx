@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 interface ResponsiveMenuOptions {
     showMenu: boolean;
@@ -19,10 +20,10 @@ const ResponsiveMenu: React.FC<ResponsiveMenuOptions> = ({showMenu, menuLinks}) 
             <ul className='space-y-6 text-xl'>
                 {menuLinks.map(({id, name, link}) => (
                     <li key={id}>
-                        <a href={link} className='text-lg text-neutral-900 dark:text-white mb-6 inline-block 
+                        <Link to={link} className='text-lg text-neutral-900 dark:text-white mb-6 inline-block 
                                                     hover:text-primary transition-colors duration-500'>
                             {name}
-                        </a>
+                        </Link>
                     </li>
                 ))}
             </ul>

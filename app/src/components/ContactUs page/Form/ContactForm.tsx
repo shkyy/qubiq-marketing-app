@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Box, Grid2, InputAdornment, TextField, Typography } from '@mui/material';
+import { Box, Button, Grid2, InputAdornment, TextField, Typography } from '@mui/material';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
 import img from '../../../assets/03.svg';
@@ -28,8 +28,8 @@ const ContactForm = () => {
           <Grid2 size={{ xs: 12, md: 6 }}>
             <Typography
               variant='h4'
-              component='h2'
-              className='text-slate-700 font-semibold text-center mb-6'
+              component='h4'
+              className='text-slate-700 font-semibold text-center mb-10'
             >
               Contact Form
             </Typography>
@@ -83,6 +83,24 @@ const ContactForm = () => {
                   className='text-slate-800'
                 />
               </motion.div>
+
+              <Button
+            variant='contained'
+            sx={{
+              background: 'oklch(60.12% 0.1 292.39)',
+              borderRadius: "6px",
+              height: '40px',
+              margin: '1px',
+              fontSize: 12,
+              transition: '0.3s',
+              "&:hover": {
+                background: 'oklch(70% 0.12 292.39)',
+                transform: 'scale(1.05)',
+              },
+            }}
+          >
+            Submit
+          </Button>
             </form>
           </Grid2>
         </Grid2>

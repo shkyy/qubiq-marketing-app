@@ -4,7 +4,8 @@ import { Box, Card, CardActions, CardContent, CardMedia, IconButton, Typography 
 import manula from "../../../assets/Manula.jpg";
 import ashini from "../../../assets/Ashini.jpeg";
 import navindu from "../../../assets/Navindu.jpeg";
-import jaith from '../../../assets/jaith.jpeg'
+import jaith from '../../../assets/jaith.jpeg';
+import inuthi from '../../../assets/inuthi.jpeg';
 
 interface SocialLinks {
   github: string;
@@ -37,7 +38,7 @@ const teamMembers: TeamMember[] = [
     name: "Inuthi Shakya",
     role: "Full Stack Developer & Technical guide",
     description: "Guides the technical direction and contributes to both frontend and backend development, focusing on system design.",
-    image: "/api/placeholder/300/300",
+    image: inuthi,
     socials: {
       github: "https://github.com/shkyy",
       linkedin: "https://www.linkedin.com/in/inuthi-shakya/",
@@ -95,23 +96,24 @@ const TeamMemberCard: React.FC = () => {
         sx={{ 
           display: 'flex',
           minWidth: 'max-content',
-          gap: 2,
-          justifyContent: 'center'
+          gap: { xs: 1.5, sm: 2, md: 3 },
+          justifyContent: 'center',
+          flexWrap: 'wrap',
         }}
       >
         {teamMembers.map((member) => (
           <Card
             key={member.id}
             sx={{
-              width: 250,
-              height: 396,
+              width: { xs: 180, sm: 200, md: 250 },
+              height: { xs: 316, sm: 335, md: 406 },
               display: 'flex',
-              boxShadow: 8,
+              boxShadow: 6,
               flexDirection: 'column',
               borderRadius: 2,
               transition: 'all 0.3s ease-in-out',
               '&:hover': {
-                transform: 'scale(1.03)',
+                transform: 'scale(1.05)',
                 boxShadow: (theme) => `0 8px 24px ${theme.palette.primary.light}40`
               }
             }}
@@ -119,20 +121,33 @@ const TeamMemberCard: React.FC = () => {
             <CardMedia
               component="img"
               sx={{ 
-                height: 200,
+                height: { xs: 120, sm: 150, md: 200 },
                 objectFit: 'cover'
               }}
               image={member.image}
               alt={member.name}
             />
             <CardContent sx={{ flexGrow: 1, textAlign: 'center', py: 1, px: 1.5 }}>
-              <Typography variant="h6" component="h3" sx={{ fontSize: '0.95rem', fontWeight: 600, mb: 0.5, fontFamily: 'Poppins, sans-serif', }}>
+              <Typography 
+                variant="h6" 
+                component="h3" 
+                sx={{ 
+                  fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1rem' }, 
+                  fontWeight: 600, 
+                  mb: 0.5, 
+                  fontFamily: 'Poppins, sans-serif', 
+                }}
+              >
                 {member.name}
               </Typography>
               <Typography 
                 variant="subtitle2" 
                 color="primary" 
-                sx={{ fontSize: '0.8rem', mb: 0.5, fontFamily: 'Poppins, sans-serif', }}
+                sx={{ 
+                  fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' }, 
+                  mb: 0.5, 
+                  fontFamily: 'Poppins, sans-serif',
+                }}
               >
                 {member.role}
               </Typography>
@@ -143,7 +158,7 @@ const TeamMemberCard: React.FC = () => {
                   display: '-webkit-box',
                   WebkitLineClamp: 2,
                   overflow: 'hidden',
-                  fontSize: '0.75rem',
+                  fontSize: { xs: '0.65rem', sm: '0.7rem', md: '0.75rem' },
                   fontFamily: 'Poppins, sans-serif',
                 }}
               >
