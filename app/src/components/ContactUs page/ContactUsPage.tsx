@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion';
 import SocialMediaCard from './Card/SocialMediaCard';
 import ContactForm from './Form/ContactForm';

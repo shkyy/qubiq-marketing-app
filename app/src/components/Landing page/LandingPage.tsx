@@ -1,4 +1,3 @@
-import NavBar from "../NavBar/NavBar"
 import ComingSoon from "./ComingSoon/ComingSoon"
 import Features from "./Features/Features"
 import KeyFeatures from "./Features/KeyFeatures"

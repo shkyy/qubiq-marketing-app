@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import img from '../../assets/04.svg'
 import img2 from '../../assets/05.svg'
@@ -12,7 +11,7 @@ import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import AnalyticsOutlinedIcon from '@mui/icons-material/AnalyticsOutlined';
 import Groups3OutlinedIcon from '@mui/icons-material/Groups3Outlined';
-import { Box, Grid2, Paper } from '@mui/material'
+import { Box, Grid2 } from '@mui/material'
 
 const FeaturesPage = () => {
 
