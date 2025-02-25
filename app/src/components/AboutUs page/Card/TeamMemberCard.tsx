@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 2,
     name: "Inuthi Shakya",
-    role: "Full Stack Developer & Technical guide",
+    role: "Full Stack Developer",
     description: "Guides the technical direction and contributes to both frontend and backend development, focusing on system design.",
     image: inuthi,
     socials: {
