@@ -18,14 +18,14 @@ const Footer = () => {
           {/* Social Media Icons */}
           <div className="flex space-x-6 mt-4 md:mt-0">
             <motion.a
-              href="#"
+              href="https://www.instagram.com/qubiq.co/"
               className="text-indigo-200/60 hover:text-indigo-200 transition"
               whileHover={{ scale: 1.1 }}
             >
               <Instagram fontSize="medium" />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://www.linkedin.com/company/qubiq-official/"
               className="text-indigo-200/60 hover:text-indigo-200 transition"
               whileHover={{ scale: 1.1 }}
             >

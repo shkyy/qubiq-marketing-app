@@ -1,9 +1,43 @@
 import { motion } from 'framer-motion';
 import img from '../../../assets/02.png'
-import { Button, TextField } from '@mui/material';
+import { Alert, Button, Snackbar, TextField } from '@mui/material';
+import { FormEvent, useRef, useState } from "react";
 
 const Hero = () => {
-  
+  const [email, setEmail] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error'>("success");
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    
+    fetch("https://script.google.com/macros/s/AKfycbz9xNeYF2O24XSRhINBZwwQM6xtmgGn6oRUB1Q29sOdtdgCHBHySkKuMhUOXvCXqjtw/exec", {
+      method: 'POST',
+      body: new FormData(formRef.current),
+    }).then(res => {
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return res.json();
+    })
+    .then(data => {
+      setSnackbarMessage("Added to the waiting list");
+      setSnackbarSeverity('success');
+      setOpenSnackbar(true);
+      setEmail("")
+      console.log(data);
+    })
+    .catch(err => {
+      console.error('There was a problem with the fetch operation:', err);
+      setSnackbarMessage('Submission failed. Please try again.');
+      setSnackbarSeverity('error');
+      setOpenSnackbar(true);
+    });
+  };
+
   return (
     <main className='relative py-2 px-6 lg:px-20 text-center overflow-hidden'>
      <div className="absolute bottom-0 left-0 w-full h-[190px] bg-slate-800"></div>
@@ -31,12 +65,15 @@ const Hero = () => {
             Join the waitlist to get notified on launch and get an exclusive experience
           </p>
 
-        <div className='col-auto flex justify-center gap-1'>
-        <TextField 
+        <form ref={formRef} className='col-auto flex justify-center gap-1' onSubmit={handleSubmit}>
+          <TextField 
             id="outlined-basic" 
             variant="outlined" 
             placeholder='Enter your email'
             className='w-80'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            name="Email"
             sx={{
               "& .MuiOutlinedInput-root": { 
                 borderRadius: "6px", 
@@ -52,6 +89,7 @@ const Hero = () => {
 
           <Button
             variant='contained'
+            type='submit'
             sx={{
               background: 'oklch(60.12% 0.1 292.39)',
               borderRadius: "6px",
@@ -67,8 +105,8 @@ const Hero = () => {
           >
             Join the waitlist
           </Button>
-        </div>
-                 
+        </form>
+                  
         </motion.div>
 
         {/* Hero image */}
@@ -87,8 +125,13 @@ const Hero = () => {
         </motion.div>
       </div>
 
+      <Snackbar open={openSnackbar} autoHideDuration={4000} onClose={() => setOpenSnackbar(false)}>
+          <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%'}}>
+            {snackbarMessage}
+          </Alert>
+      </Snackbar>
     </main>
   )
 }
 
-export default Hero
+export default Hero;
