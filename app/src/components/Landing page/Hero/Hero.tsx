@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import img from '../../../assets/02.png'
-import { Alert, Button, Snackbar, TextField } from '@mui/material';
+import { Alert, Button, Snackbar, TextField, useMediaQuery, useTheme } from '@mui/material';
 import { FormEvent, useRef, useState } from "react";
 
 const Hero = () => {
@@ -9,6 +9,8 @@ const Hero = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error'>("success");
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -42,35 +44,30 @@ const Hero = () => {
     <main className='relative py-2 px-6 lg:px-20 text-center overflow-hidden'>
      <div className="absolute bottom-0 left-0 w-full h-[190px] bg-slate-800"></div>
       <div className="relativez-50 container mx-auto flex flex-col items-center">
-        <div className='absolute py-115 bg-gradient-to-bl from-purple-300 via-indigo-200 to-pink-200 w-[85%] -z-5 h-32'></div>
-        {/* Headline text */}
+        <div className='absolute py-115 bg-gradient-to-bl from-purple-300 via-indigo-200 to-pink-200 w-[85%] -z-5 h-32 '></div>
         <motion.div
           className=''
           initial={{ opacity:0, y: 20 }}
           animate={{ opacity:1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className='text-5xl mt-16 font-semibold text-gray-900 leading-tight'>
-          Enhance Productivity with <br/>
+          <h1 className='text-lg md:text-5xl max-w-xs md:max-w-5xl mt-8 md:mt-16 ml-1 md:ml-0 font-semibold text-gray-900 leading-normal md:leading-tight'>
+          Enhance Productivity with<br/>
             <motion.span className='text-qubiqblue' whileHover={{scale: 1.1}}>AI-Driven </motion.span>
             Insights for Smarter Workflows
           </h1>
 
-          <p className='mt-7 text-lg text-gray-700 max-w-3xl mx-auto'>
+          <p className='mt-2 md:mt-7 text-xs md:text-lg text-gray-700 max-w-2xs md:max-w-3xl mx-auto leading-normal'>
             Boost efficiency, enhance code quality, and collaborate seamlessly with
             <strong> QUBIQ</strong> – the next-gen AI-driven project management solution.
           </p>
 
-          <p className='mt-20 mb-3 text-md text-gray-600 max-w-md mx-auto'>
-            Join the waitlist to get notified on launch and get an exclusive experience
-          </p>
-
-        <form ref={formRef} className='col-auto flex justify-center gap-1' onSubmit={handleSubmit}>
+        <form ref={formRef} className={`${isMobile ? 'flex flex-col items-center' : 'col-auto flex justify-center gap-1'} mt-5 md:mt-10`}  onSubmit={handleSubmit}>
           <TextField 
             id="outlined-basic" 
             variant="outlined" 
             placeholder='Enter your email'
-            className='w-80'
+            className={`${isMobile ? 'w-full max-w-3xs' : 'w-80'}`}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             name="Email"
@@ -79,11 +76,12 @@ const Hero = () => {
                 borderRadius: "6px", 
               },
               "& .MuiInputBase-input": { 
-                fontSize: 14, 
-                height: 17, 
+                fontSize: isMobile ? 11.5 : 14, 
+                height: isMobile ? 8 : 17,  
                 padding: 1.5,
                 marginLeft: 1,
-              } 
+              } ,
+              marginBottom: isMobile ? 0.9 : 0
             }}
           />
 
@@ -93,9 +91,10 @@ const Hero = () => {
             sx={{
               background: 'oklch(60.12% 0.1 292.39)',
               borderRadius: "6px",
-              height: '40px',
-              margin: '1px',
-              fontSize: 12,
+              height: isMobile ? '32px' : '40px',
+              width: isMobile ? '79%' : 'auto',
+              maxWidth: isMobile ? '280px' : 'none',
+              fontSize: isMobile? 11 : 12,
               transition: '0.3s',
               "&:hover": {
                 background: 'oklch(70% 0.12 292.39)',
@@ -111,7 +110,7 @@ const Hero = () => {
 
         {/* Hero image */}
         <motion.div
-          className='mt-12 w-full max-w-5xl relative'
+          className='mt-8 md:mt-12 w-full max-w-5xl relative'
           initial={{opacity: 0, scale: 0.95 }}
           animate={{opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
@@ -126,7 +125,7 @@ const Hero = () => {
       </div>
 
       <Snackbar open={openSnackbar} autoHideDuration={4000} onClose={() => setOpenSnackbar(false)}>
-          <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%'}}>
+          <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%'}} variant='filled'>
             {snackbarMessage}
           </Alert>
       </Snackbar>

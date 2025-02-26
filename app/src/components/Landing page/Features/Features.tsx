@@ -74,7 +74,7 @@ const Features = () => {
   return (
     <section className="bg-slate-800 flex flex-col lg:flex-row h-auto w-full py-14 items-center justify-between gap-x-10">
       <div className="lg:w-full">
-      <h3 className="text-white text-5xl leading-tight px-10 ml-15 font-medium max-w-3xl">
+      <h3 className="text-white text-xl md:text-5xl leading-tight px-10 ml-15 font-medium max-w-3xl">
           Boost Your <br/>Team’s {" "}
        <span className="inline-block relative">
           <motion.span

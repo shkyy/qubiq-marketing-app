@@ -38,12 +38,12 @@ const NavBar = () => {
     }
     return (
         <>
-            <nav className="bg-white py-4 px-20 dark:bg-black">
+            <nav className="bg-white py-4 md:px-20 dark:bg-black">
                 <div className="containers py-0.5 md:py-1">
                     <div className="flex justify-between items-center px-8">
                         {/* Logo section */}
                         <div className="flex items-center space-x-3">
-                            <img src={logo} alt="Logo" className="h-12 w-auto" />
+                            <img src={logo} alt="Logo" className="h-9 sm:h-10 md:h-11 lg:h-12 w-auto"/>
                         </div>
                         {/* Navlinks section */}
                         <div className="hidden md:block">
@@ -82,7 +82,7 @@ const NavBar = () => {
                             </nav>
                         </div>
                         {/* Mobile View */}
-                        <div className="flex items-center gap-4 md:hidden">
+                        <div className="flex items-center gap-1 md:hidden">
                             {
                                 showMenuBar ?
 
@@ -101,6 +101,7 @@ const NavBar = () => {
                 <ResponsiveMenu
                     showMenu={showMenuBar}
                     menuLinks={links}
+                    toggleMenu={toggleMenu}
                 />
             </nav>
 
