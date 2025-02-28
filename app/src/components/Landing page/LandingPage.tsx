@@ -7,7 +7,7 @@ import Services_2 from "./Services/Services_2"
 
 const LandingPage = () => {
   return (
-      <div className="relative text-center overflow-hidden bg-gradient-to-t from-primary via-white ">
+      <div className="relative overflow-hidden bg-gradient-to-t from-primary via-white ">
       <Hero/>
       <Features/>
       <Services_2/>

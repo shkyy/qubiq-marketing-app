@@ -11,15 +11,15 @@ const fadeInVariants = {
 const Services_2 = () => {
   return (
     <motion.section 
-        className="py-15 flex flex-col-reverse lg:flex-row w-full items-center"
+        className="py-10 flex flex-col-reverse lg:flex-row w-full items-center px-6 md:px-1"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInVariants}
     >
         <div className="lg:w-3/5 relative flex justify-center items-center mt-10">
-            <div className="relative flex flex-col lg:w-2/3">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-200 via-indigo-100 to-pink-100 rounded-full w-full h-[470px] mt-1 ml-20 blur-2xl"></div>
+            <div className="relative flex flex-col w-full lg:w-2/3">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-200 via-indigo-100 to-pink-100 rounded-full w-full h-[300px] sm:h-[400px] lg:h-[470px] mt-1 ml-5 sm:ml-10 lg:ml-20 blur-2xl"></div>
             <motion.img 
                 src={svg} 
                 alt="Feature Illustration" 
@@ -33,16 +33,16 @@ const Services_2 = () => {
         </div>
 
         <motion.div 
-            className="lg:w-2/3 py-20 pl-27 pr-25 text-center lg:text-left"
+            className="w-full lg:w-2/3 py-10 sm:py-16 lg:py-20 text-center lg:text-left px-4 sm:px-10 lg:px-20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInVariants}
         >
-            <h3 className="text-5xl leading-tight font-medium max-w-2xl ml-15">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-medium max-w-2xl mx-auto lg:mx-0">
                 Revolutionize development within teams
             </h3>
-            <p className="py-6 font-extralight max-w-5xl leading-7 ml-15.5">
+            <p className="py-4 sm:py-6 font-extralight max-w-5xl leading-7 mx-auto lg:mx-0">
                 Empowers developers with AI-driven insights, real-time feedback, and seamless collaboration, 
                 helping coding more efficient and deliver high-quality software faster.
             </p>
@@ -61,7 +61,6 @@ const Services_2 = () => {
               borderRadius: "6px",
               height: '42px',
               margin: '1px',
-              marginLeft: 7.6,
               fontSize: 13,
               transition: 'all 0.3s ease-in-out',
               "&:hover": {
